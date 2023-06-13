@@ -25,3 +25,30 @@ FuncAttr
 .. image:: https://img.shields.io/github/last-commit/kalekundert/funcattr?logo=github
    :alt: Last commit
    :target: https://github.com/kalekundert/funcattr
+
+FuncAttr provides a simple decorator that assigns attributes to functions.  For 
+example, if you have several different functions for analyzing the same data, 
+you might use this library to give each a descriptive title to be used in 
+downstream plotting routines.  Of course, it isn't difficult to assign 
+attributes like these to functions without a decorator, but such assignments 
+must happen after the function body and can be easy to lose track of.  A 
+decorator puts these labels at the beginning of the function, and can never be 
+accidentally separated from the function as the code is refactored.
+
+Installation
+============
+FuncAttr is available on PyPI::
+
+  $ pip install funcattr
+
+Usage
+=====
+Here's how to use the decorator::
+
+  from funcattr import annotate
+
+  @annotate(title="Do Spam")
+  def do_spam():
+      pass
+
+  print(do_spam.title)  # Do Spam
